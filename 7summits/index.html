@@ -112,13 +112,22 @@
     <title>7 Summits Lounge</title>
     <style>
         /* Reset */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /** { margin: 0; padding: 0; box-sizing: border-box; }*/
+
+        /*html, body {*/
+        /*    height: 100%;*/
+        /*    width: 100%;*/
+        /*    background: black;*/
+        /*    !* Disable scroll while video is playing; JS switches this to auto *!*/
+        /*    overflow: hidden;*/
+        /*}*/
 
         html, body {
+            margin: 0;
+            padding: 0;
+            background: black;
             height: 100%;
             width: 100%;
-            background: black;
-            /* Disable scroll while video is playing; JS switches this to auto */
             overflow: hidden;
         }
 
@@ -148,22 +157,6 @@
         /*    object-fit: cover; !* Fill screen nicely *!*/
         /*}*/
 
-        /* Optional skip button */
-        .skip-btn {
-            position: absolute;
-            right: 1rem;
-            top: 1rem;
-            z-index: 11;
-            background: rgba(255,255,255,0.12);
-            color: #fff;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 0.5rem 0.75rem;
-            border-radius: 999px;
-            font: 500 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-            cursor: pointer;
-            backdrop-filter: blur(6px);
-        }
-        .skip-btn:focus { outline: 2px solid #fff; outline-offset: 2px; }
 
         /* ---------- Gallery ---------- */
         #gallery {
@@ -210,13 +203,21 @@
 <main id="gallery" aria-label="Image Gallery">
     <!-- Add/remove frames as needed; example for 9 images -->
     <section class="frame"><img src="img/certificate.jpg"  loading="eager" alt="Photo 1"></section>
+    <br />
     <section class="frame"><img src="img/menu1.jpg"  loading="eager"  alt="Photo 2"></section>
+    <br />
     <section class="frame"><img src="img/menu2.jpg"  loading="eager"  alt="Photo 3"></section>
+    <br />
     <section class="frame"><img src="img/menu3.jpg"  loading="eager"  alt="Photo 4"></section>
+    <br />
     <section class="frame"><img src="img/menu4.jpg"  loading="eager"  alt="Photo 5"></section>
+    <br />
     <section class="frame"><img src="img/menu5.jpg"  loading="eager"  alt="Photo 6"></section>
+    <br />
     <section class="frame"><img src="img/menu6.jpg"  loading="eager"  alt="Photo 7"></section>
+    <br />
     <section class="frame"><img src="img/menu7.jpg"  loading="eager"  alt="Photo 8"></section>
+    <br />
     <section class="frame"><img src="img/menu8.jpg"  loading="eager"  alt="Photo 9"></section>
 </main>
 
