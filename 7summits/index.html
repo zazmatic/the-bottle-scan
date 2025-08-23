@@ -1,10 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>7 Summits</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Tap to open the menu!" />
+    <title>7 Summits Lounge</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #video-container {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            background: black;
+        }
+
+        #menu-images {
+            display: none;
+            width: 100vw;
+            height: 100vw;
+            object-fit: contain;
+        }
+
+        #first-image {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            object-fit: contain;
+        }
+    </style>
 </head>
 <body>
-<h1>7 Summits</h1>
+
+<!-- Welcome Video -->
+<div id="video-container">
+    <video id="welcome-video" width="100%" height="100%" autoplay muted playsinline>
+        <source src="7summits-animation.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<!--<div id="menu-images">-->
+    <!-- Menu Image -->
+    <img id="first-image" src="img/img1-7summits.png" alt="Restaurant Menu" />
+    <br />
+    <img id="second-image" src="img/img2-7summits.png" alt="Restaurant Menu" />
+    <br />
+    <img id="third-image" src="img/img3-7summits.png" alt="Restaurant Menu" />
+    <br />
+    <img id="fourth-image" src="img/img4-7summits.png" alt="Restaurant Menu" />
+    <br />
+    <img id="fifth-image" src="img/img5-7summits.png" alt="Restaurant Menu" />
+    <br />
+    <img id="sixth-image" src="img/img6-7summits.png" alt="Restaurant Menu" />
+    <br />
+    <img id="seventh-image" src="img/img7-7summits.png" alt="Restaurant Menu" />
+    <br />
+    <img id="eighth-image" src="img/img8-7summits.png" alt="Restaurant Menu" />
+    <br />
+    <img id="ninth-image" src="img/img9-7summits.png" alt="Restaurant Menu" />
+<!--</div>-->
+
+
+<script>
+    const video = document.getElementById('welcome-video');
+    const videoContainer = document.getElementById('video-container');
+    const menuImages = document.getElementById("menu-images")
+    const firstImage = document.getElementById('first-image');
+
+    video.addEventListener('ended', () => {
+        videoContainer.style.display = 'none';
+        // menuImages.style.display = 'block';
+        firstImage.style.display = 'block';
+    });
+</script>
+
 </body>
 </html>
