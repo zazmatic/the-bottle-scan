@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Full screen intro video then scroll gallery" />
+    <title>7 Summits Lounge</title>
+    <style>
+        /* Reset */
+        /** { margin: 0; padding: 0; box-sizing: border-box; }*/
+
+        /*html, body {*/
+        /*    height: 100%;*/
+        /*    width: 100%;*/
+        /*    background: black;*/
+        /*    !* Disable scroll while video is playing; JS switches this to auto *!*/
+        /*    overflow: hidden;*/
+        /*}*/
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* ---------- Intro Video ---------- */
+        #video-container {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            background: black;
+            /*display: block;*/
+        }
+
+        /*#video-container {*/
+        /*    position: fixed;*/
+        /*    top: 0; left: 0;*/
+        /*    width: 100%;*/
+        /*    height: 100%;*/
+        /*    z-index: 2;*/
+        /*    background: black;*/
+        /*}*/
+
+        /*#welcome-video {*/
+        /*    width: 100%;*/
+        /*    height: 100%;*/
+        /*    object-fit: cover; !* Fill screen nicely *!*/
+        /*}*/
+
+
+        /* ---------- Gallery ---------- */
+        #gallery {
+            display: none;              /* shown after video */
+            min-height: 100%;
+        }
+
+        /* Enable scroll snapping (optional but nice) */
+        html {
+            scroll-snap-type: y mandatory; /* remove if you want free scrolling */
+            scroll-behavior: smooth;
+        }
+
+        .frame {
+            height: 100vh;              /* each item fills the screen */
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: black;          /* fallback around images */
+            scroll-snap-align: start;
+            /*margin-top: 10px;*/
+        }
+
+        .frame img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;        /* keep aspect ratio; no crop */
+        }
+    </style>
+</head>
+<body>
+
+<!-- ---------- Fullscreen Intro Video ---------- -->
+<div id="video-container">
+<!--    <button id="skip" class="skip-btn" aria-label="Skip intro video">Skip</button>-->
+    <video id="welcome-video" width="100%" height="100%" autoplay muted playsinline>
+        <source src="animation/coca-cola-x-savor.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<!-- ---------- Full-Height Scroll Gallery ---------- -->
+<main id="gallery" aria-label="Image Gallery">
+    <!-- Add/remove frames as needed; example for 9 images -->
+    <section class="frame"><img src="img/Savor_Menu_Final.png"  loading="eager" alt="Photo 1"></section>
+</main>
+
+
+<script>
+    const video          = document.getElementById('welcome-video');
+    const videoContainer = document.getElementById('video-container');
+    const gallery        = document.getElementById('gallery');
+    // const skipBtn        = document.getElementById('skip');
+
+    function showGallery() {
+        // Hide video, show gallery, enable page scrolling
+        video.pause();
+        videoContainer.style.display = 'none';
+        gallery.style.display = 'block';
+        document.body.style.overflowY = 'auto';
+    }
+
+    // When video ends naturally
+    video.addEventListener('ended', showGallery);
+
+    // Allow user to skip
+    // skipBtn.addEventListener('click', showGallery);
+
+    // Fallback: if the video fails to load, show gallery so the page isn't blank
+    video.addEventListener('error', showGallery);
+</script>
+</body>
+</html>
