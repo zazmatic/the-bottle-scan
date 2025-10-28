@@ -186,25 +186,46 @@
             max-height: 100%;
             object-fit: contain;        /* keep aspect ratio; no crop */
         }
-        .c-soon{
-            /* color: red; */
-            color: #a44949;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
     </style>
 </head>
 <body>
-<span class="c-soon">Comming soon...</span>
 <!-- ---------- Fullscreen Intro Video ---------- -->
-<!-- <div id="video-container">
-   <button id="skip" class="skip-btn" aria-label="Skip intro video">Skip</button>
+<div id="video-container">
+<!--    <button id="skip" class="skip-btn" aria-label="Skip intro video">Skip</button>-->
     <video id="welcome-video" width="100%" height="100%" autoplay muted playsinline>
-        <source src="kafshate.mp4" type="video/mp4">
+        <source src="halfandhalf.mp4" type="video/mp4">
     </video>
-</div> -->
+</div>
+<main id="gallery" aria-label="Image Gallery">
+    <!-- Add/remove frames as needed; example for 9 images -->
+    <section class="frame"><img src="img/half and half menu-01.png"  loading="eager" alt="Photo 1"></section>
+    <br />
+    <section class="frame"><img src="img/half and half menu-02.png"  loading="eager"  alt="Photo 2"></section>
+</main>
+
+<script>
+    const video          = document.getElementById('welcome-video');
+    const videoContainer = document.getElementById('video-container');
+    const gallery        = document.getElementById('gallery');
+    // const skipBtn        = document.getElementById('skip');
+
+    function showGallery() {
+        // Hide video, show gallery, enable page scrolling
+        video.pause();
+        videoContainer.style.display = 'none';
+        gallery.style.display = 'block';
+        document.body.style.overflowY = 'auto';
+    }
+
+    // When video ends naturally
+    video.addEventListener('ended', showGallery);
+
+    // Allow user to skip
+    // skipBtn.addEventListener('click', showGallery);
+
+    // Fallback: if the video fails to load, show gallery so the page isn't blank
+    video.addEventListener('error', showGallery);
+</script>
 </body>
 </html>
 
