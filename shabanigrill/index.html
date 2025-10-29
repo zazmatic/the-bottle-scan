@@ -203,6 +203,66 @@
         <source src="shabani.mp4" type="video/mp4">
     </video>
 </div>
+<main id="gallery" aria-label="Image Gallery">
+    <!-- Add/remove frames as needed; example for 9 images -->
+    <section class="frame"><img src="img/01.jpg"  loading="eager" alt="Photo 1"></section>
+    <br />
+    <section class="frame"><img src="img/02.jpg"  loading="eager"  alt="Photo 2"></section>
+    <br />
+    <section class="frame"><img src="img/03.jpg"  loading="eager"  alt="Photo 3"></section>
+    <br />
+    <section class="frame"><img src="img/04.jpg"  loading="eager"  alt="Photo 4"></section>
+    <br />
+    <section class="frame"><img src="img/05.jpg"  loading="eager"  alt="Photo 5"></section>
+    <br />
+    <section class="frame"><img src="img/06.jpg"  loading="eager"  alt="Photo 6"></section>
+    <br />
+    <section class="frame"><img src="img/07.jpg"  loading="eager"  alt="Photo 7"></section>
+    <br />
+    <section class="frame"><img src="img/08.jpg"  loading="eager"  alt="Photo 8"></section>
+    <br />
+    <section class="frame"><img src="img/09.jpg"  loading="eager"  alt="Photo 9"></section>
+    <br />
+    <section class="frame"><img src="img/10.jpg"  loading="eager"  alt="Photo 10"></section>
+    <br />
+    <section class="frame"><img src="img/11.jpg"  loading="eager"  alt="Photo 11"></section>
+    <br />
+    <section class="frame"><img src="img/12.jpg"  loading="eager"  alt="Photo 12"></section>
+    <br />
+    <section class="frame"><img src="img/13.jpg"  loading="eager"  alt="Photo 13"></section>
+    <br />
+    <section class="frame"><img src="img/14.png"  loading="eager"  alt="Photo 14"></section>
+    <br />
+    <section class="frame"><img src="img/15.jpg"  loading="eager"  alt="Photo 15"></section>
+    <br />
+    <section class="frame"><img src="img/16.png"  loading="eager"  alt="Photo 16"></section>
+    <br />
+    <section class="frame"><img src="img/17.jpg"  loading="eager"  alt="Photo 17"></section>
+</main>
+
+<script>
+    const video          = document.getElementById('welcome-video');
+    const videoContainer = document.getElementById('video-container');
+    const gallery        = document.getElementById('gallery');
+    // const skipBtn        = document.getElementById('skip');
+
+    function showGallery() {
+        // Hide video, show gallery, enable page scrolling
+        video.pause();
+        videoContainer.style.display = 'none';
+        gallery.style.display = 'block';
+        document.body.style.overflowY = 'auto';
+    }
+
+    // When video ends naturally
+    video.addEventListener('ended', showGallery);
+
+    // Allow user to skip
+    // skipBtn.addEventListener('click', showGallery);
+
+    // Fallback: if the video fails to load, show gallery so the page isn't blank
+    video.addEventListener('error', showGallery);
+</script>
 </body>
 </html>
 
